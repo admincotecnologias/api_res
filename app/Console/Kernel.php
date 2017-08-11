@@ -2,6 +2,8 @@
 
 namespace App\Console;
 
+use App\Week;
+use Carbon\Carbon;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -26,6 +28,12 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')
         //          ->hourly();
+        $schedule->call(function(){
+            Week::create([
+                'start_date'=>Carbon::now()->toDateString(),
+                'end_date'=>Carbon::now()->addDays(7)->toDateString()
+            ]);
+        })->weekly()->saturdays()->at('1:00');
     }
 
     /**

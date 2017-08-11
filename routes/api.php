@@ -29,6 +29,44 @@ $api->version('v1', function (Router $api) {
                 ]);
             }
         ]);
+
+        //Users
+        $api->group(['prefix' => 'Users'],function(Router $api){
+            $api->get('/','App\\Api\\V1\\Controllers\\UsersController@get_AllUsers');
+            $api->get('/Current','App\\Api\\V1\\Controllers\\UsersController@get_AuthUser');
+            $api->get('/{id}','App\\Api\\V1\\Controllers\\UsersController@get_UserByID');
+            $api->delete('/{id}','App\\Api\\V1\\Controllers\\UsersController@delete_UserByID');
+        });
+
+        //Enterprises
+        $api->group(['prefix' => 'Enterprises'],function(Router $api){
+            $api->post('/','App\\Api\\V1\\Controllers\\EnterpriseController@create_Enterprise');
+            $api->get('/','App\\Api\\V1\\Controllers\\EnterpriseController@get_AllEnterprises');
+            $api->get('/{id}','App\\Api\\V1\\Controllers\\EnterpriseController@get_EnterpriseByID');
+            $api->delete('/{id}','App\\Api\\V1\\Controllers\\EnterpriseController@delete_EnterpriseByID');
+            $api->put('/{id}','App\\Api\\V1\\Controllers\\EnterpriseController@put_Enterprise');
+            $api->post('/AddUser','App\\Api\\V1\\Controllers\\EnterpriseController@add_User');
+        });
+        //Formats
+        $api->group(['prefix'=>'Formats'],function(Router $api){
+            $api->post('/','App\\Api\\V1\\Controllers\\FormatController@post_Create');
+            $api->post('/Files','App\\Api\\V1\\Controllers\\FormatController@post_File');
+            $api->put('/{id}','App\\Api\\V1\\Controllers\\FormatController@post_Create');
+            $api->get('/','App\\Api\\V1\\Controllers\\FormatController@get_All');
+            $api->get('/{id}','App\\Api\\V1\\Controllers\\FormatController@get_ByIDFormat');
+            $api->get('/Enterprise/{id}','App\\Api\\V1\\Controllers\\FormatController@get_By_Enterprise');
+            $api->get('/User/{id}','App\\Api\\V1\\Controllers\\FormatController@get_By_User');
+            $api->get('/Week/Current','App\\Api\\V1\\Controllers\\FormatController@get_Current_Week');
+            $api->get('/Week/{id}','App\\Api\\V1\\Controllers\\FormatController@get_By_Week');
+            $api->get('/Week/{idW}/Enterprise/{idE}','App\\Api\\V1\\Controllers\\FormatController@get_By_Week_Enterprise');
+            $api->get('/Enterprise/{idE}/User/{idU}','App\\Api\\V1\\Controllers\\FormatController@get_By_Enterprise_User');
+            $api->get('/Week/{idW}/Enterprise/{idE}/User/{idU}','App\\Api\\V1\\Controllers\\FormatController@get_By_Week_Enterprise_User');
+        });
+        //Weeks
+        $api->group(['prefix'=>'Weeks'],function(Router $api){
+            $api->get('/','App\\Api\\V1\\Controllers\\FormatController@get_All_Weeks');
+            $api->post('/','App\\Api\\V1\\Controllers\\FormatController@post_Weeks_Between_Two_Dates');
+        });
     });
 
     $api->get('hello', function() {
