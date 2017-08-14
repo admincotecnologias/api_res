@@ -19,7 +19,10 @@ class LoginController extends Controller
         try {
             $token = $JWTAuth->attempt($credentials);
             if(!$token) {
-                throw new AccessDeniedHttpException();
+                return response()->json(['error'=>[
+                    'message'=>'No se puede accesar con esas credenciales.',
+                    'status_code'=>400
+                ]],418);
             }
             $user = User::where('email',$request->input('email'))->firstOrFail();
             return response()
@@ -32,7 +35,10 @@ class LoginController extends Controller
         } catch (JWTException $e) {
             throw new HttpException(500);
         }catch (\Exception $e){
-            throw new HttpException(500);
+            return response()->json(['error'=>[
+                'message'=>$e,
+                'status_code'=>400
+            ]],400);
         }
     }
 }

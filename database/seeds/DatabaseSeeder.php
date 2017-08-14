@@ -36,22 +36,22 @@ class DatabaseSeeder extends Seeder
         ]);
         User::create([
             'name'=>'Francisco Esquer',
-            'email'=>'fesquer@oppesa.net',
+            'email'=>'fesquer@opessa.net',
             'password'=>'fesquer',
         ]);
         User::create([
             'name'=>'Daniel Ortiz',
-            'email'=>'dortiz@oppesa.net',
+            'email'=>'dortiz@opessa.net',
             'password'=>'dortiz',
         ]);
         User::create([
             'name'=>'Jesus Noriega',
-            'email'=>'jnoriega@oppesa.net',
+            'email'=>'jnoriega@opessa.net',
             'password'=>'jnoriega',
         ]);
         User::create([
             'name'=>'Alfredo Leyva',
-            'email'=>'aleyva@oppesa.net',
+            'email'=>'aleyva@opessa.net',
             'password'=>'aleyva',
         ]);
         User::create([

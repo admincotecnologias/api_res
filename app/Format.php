@@ -26,9 +26,9 @@ class Format extends Model
             'finance'=>'required|max:500',
             'observations'=>'required|max:500',
             'reply'=>'required|boolean',
-            'id_week'=>'required|integer|exist:week,id',
-            'id_user'=>'required|integer|exist:users,id',
-            'id_enterprise'=>'required|integer|exist:enterprise,id'
+            'id_week'=>'required|integer|exists:week,id',
+            'id_user'=>'required|integer|exists:users,id',
+            'id_enterprise'=>'required|integer|exists:enterprise,id'
         ],
         'update'=>[
             'operative'=>'max:500',

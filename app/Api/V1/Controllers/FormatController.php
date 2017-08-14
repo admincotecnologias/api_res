@@ -151,10 +151,23 @@ class FormatController extends Controller
             return response()->json(['error'=>['message'=>$validator->errors()->all(),'status_code'=>400]],400);
         }
         try{
-            $format = App\Format::create($request->all());
-            return response()->json([
-                'formats' => $format
-            ],201);
+            $created = App\Format::where('id_enterprise',$request->input('id_enterprise'))
+                ->where('id_user',$request->input('id_user'))
+                ->where('id_week',$request->input('id_week'))
+                ->get();
+            if($created->count()==0){
+                $format = App\Format::create($request->all());
+                return response()->json([
+                    'format' => $format
+                ],201);
+            }else{
+                return response()->json([
+                    'error' =>[
+                        'message' => 'Ya existe formato.',
+                        'status_code'=> 400
+                    ]
+                ],404);
+            }
         }catch(\Exception $e){
             return response()->json([
                 'error' =>[
@@ -172,9 +185,9 @@ class FormatController extends Controller
         try{
             $format = App\Format::findOrFail($id);
             $format->fill($request->all());
-            $format->saveOrFail();
+            $format->update();
             return response()->json([
-                'formats' => $format
+                'format' => $format
             ],200);
         }catch(\Exception $e){
             return response()->json([
@@ -186,8 +199,12 @@ class FormatController extends Controller
         }
     }
     public function get_All_Weeks(){
-        $weeks = App\Week::all();
+        $weeks = App\Week::orderBy('end_date','desc')->get();
         return response()->json(['weeks'=>$weeks],200);
+    }
+    public function get_Week_By_ID($id){
+        $week = App\Week::where('id',$id)->first();
+        return response()->json(['week'=>$week],200);
     }
     public function post_Weeks_Between_Two_Dates(Request $request){
         try{
@@ -196,6 +213,7 @@ class FormatController extends Controller
             $weeks = DB::table('week')
                 ->whereDate('start_date','>=',$date_start->toDateString())
                 ->whereDate('start_date','<=',$end_date->toDateString())
+                ->orderBy('end_date','DESC')
                 ->get();
             return response()->json(['weeks'=>$weeks],200);
         }catch (\Exception $e){

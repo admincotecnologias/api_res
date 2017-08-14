@@ -51,7 +51,7 @@ $api->version('v1', function (Router $api) {
         $api->group(['prefix'=>'Formats'],function(Router $api){
             $api->post('/','App\\Api\\V1\\Controllers\\FormatController@post_Create');
             $api->post('/Files','App\\Api\\V1\\Controllers\\FormatController@post_File');
-            $api->put('/{id}','App\\Api\\V1\\Controllers\\FormatController@post_Create');
+            $api->put('/{id}','App\\Api\\V1\\Controllers\\FormatController@put_Actualizar');
             $api->get('/','App\\Api\\V1\\Controllers\\FormatController@get_All');
             $api->get('/{id}','App\\Api\\V1\\Controllers\\FormatController@get_ByIDFormat');
             $api->get('/Enterprise/{id}','App\\Api\\V1\\Controllers\\FormatController@get_By_Enterprise');
@@ -65,6 +65,7 @@ $api->version('v1', function (Router $api) {
         //Weeks
         $api->group(['prefix'=>'Weeks'],function(Router $api){
             $api->get('/','App\\Api\\V1\\Controllers\\FormatController@get_All_Weeks');
+            $api->get('/{id}','App\\Api\\V1\\Controllers\\FormatController@get_Week_By_ID');
             $api->post('/','App\\Api\\V1\\Controllers\\FormatController@post_Weeks_Between_Two_Dates');
         });
     });

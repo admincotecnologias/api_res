@@ -31,7 +31,7 @@ class Kernel extends ConsoleKernel
         $schedule->call(function(){
             Week::create([
                 'start_date'=>Carbon::now()->toDateString(),
-                'end_date'=>Carbon::now()->addDays(7)->toDateString()
+                'end_date'=>Carbon::now()->addDays(6)->toDateString()
             ]);
         })->weekly()->saturdays()->at('1:00');
     }
