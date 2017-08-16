@@ -36,6 +36,7 @@ $api->version('v1', function (Router $api) {
             $api->get('/Current','App\\Api\\V1\\Controllers\\UsersController@get_AuthUser');
             $api->get('/{id}','App\\Api\\V1\\Controllers\\UsersController@get_UserByID');
             $api->delete('/{id}','App\\Api\\V1\\Controllers\\UsersController@delete_UserByID');
+            $api->post('/Reset_Password','App\\Api\\V1\\Controllers\\UsersController@post_User_Change_Password');
         });
 
         //Enterprises

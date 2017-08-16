@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App;
 use Illuminate\Http\Response;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 use \Tymon\JWTAuth\Facades\JWTAuth;
 
 
@@ -35,6 +36,35 @@ class UsersController extends Controller
             return \response()->json(['user'=>'deleted'],200);
         }catch (ModelNotFoundException $e){
             return \response()->json(['error'=>['message'=>'User Not Found','status_code'=>404]],404);
+        }
+    }
+    public function post_User_Change_Password(Request $request){
+        try{
+            $user = JWTAuth::parseToken()->authenticate();
+            $password = $user->getAuthPassword();
+            $old = $request->input('old_password');
+            if(Hash::check($old,$password)){
+                $user->fill([
+                    'password'=>$request->input('new_password')
+                ]);
+                $user->saveOrFail();
+                return \response()->json(
+                    ["message"=>"Cambio satisfactorio."],200);
+            }else{
+                return \response()->json(
+                    ["error"=>[
+                        "message"=>'Contraseña incorrecta.',
+                        "status_code"=>401
+                    ]
+                    ],401);
+            }
+        }catch (\Exception $e){
+            return \response()->json(
+                ["error"=>[
+                    "message"=>$e->getMessage(),
+                    "status_code"=>$e->getCode()
+                ]
+                ],403);
         }
     }
 }

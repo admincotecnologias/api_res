@@ -47,23 +47,18 @@ class Enterprise extends Model
     }
     public function getChildrenAttribute(){
         try{
-            $user = JWTAuth::parseToken()->authenticate();
-            if($user->role == 1){
-                $id = $this->id;
-                $data = Enterprise::where('extend',$id)->get();
-                $childs = $data->map(function ($enterprise){
-                    return [
-                        'id'=>$enterprise->id,
-                        'name'=>$enterprise->name,
-                        'color'=>$enterprise->color,
-                        'photo'=>$enterprise->photo,
-                        'users'=>$enterprise->users
-                    ];
-                });
-                return $childs;
-            }else{
-                return [];
-            }
+            $id = $this->id;
+            $data = Enterprise::where('extend',$id)->get();
+            $childs = $data->map(function ($enterprise){
+                return [
+                    'id'=>$enterprise->id,
+                    'name'=>$enterprise->name,
+                    'color'=>$enterprise->color,
+                    'photo'=>$enterprise->photo,
+                    'users'=>$enterprise->users
+                ];
+            });
+            return $childs;
         }catch(\Exception $e){
             return [];
         }
