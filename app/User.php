@@ -53,4 +53,12 @@ class User extends Authenticatable
         });
         return $filter;
     }
+    public static $rules = [
+        'create'=>[
+            'name'=>'required|max:255',
+            'email'=>'required|max:255|unique:users',
+            'password'=>'required|max:10',
+            'role'=>'required|integer',
+        ]
+    ];
 }

@@ -16,10 +16,10 @@ class Format extends Migration
         //Table Format
         Schema::create('format', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('operative',500);
-            $table->string('finance',500);
-            $table->string('observations',500);
-            $table->boolean('reply');
+            $table->string('operative',500)->default('');
+            $table->string('finance',500)->default('');
+            $table->string('observations',500)->default('');
+            $table->boolean('reply')->default(false);
             $table->integer('id_week')->unsigned()->nullable();
             $table->integer('id_user')->unsigned()->nullable();
             $table->integer('id_enterprise')->unsigned()->nullable();

@@ -23,7 +23,8 @@ class Enterprise extends Model
             'color'=>'required|nullable|max:9',
             'extend'=>'required|nullable|exist:enterprise,id',
             'photo'=>'max:100',
-            'id'=>'nullable|integer'
+            'id'=>'nullable|integer',
+            'type'=>'integer'
         ],
         'update'=>[
             'name'=>'max:50',

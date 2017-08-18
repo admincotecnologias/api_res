@@ -13,6 +13,7 @@ use Validator;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+use \Tymon\JWTAuth\Facades\JWTAuth;
 
 
 class EnterpriseController extends Controller
@@ -34,6 +35,23 @@ class EnterpriseController extends Controller
             $enterprise = Enterprise::findOrFail($id);
             $enterprise->delete();
             return \response()->json(['enterprise'=>'deleted'],200);
+        }catch (ModelNotFoundException $e){
+            return \response()->json(['error'=>['message'=>'User Not Found','status_code'=>404]],404);
+        }
+    }
+    public function delete_User_From_Enterprise_By_ID_User($idE,$idU){
+        try{
+            $user = JWTAuth::parseToken()->authenticate();
+            if($user->role == 1){
+                $id = Enterprise_User::where('id_user',$idU)->where('id_enterprise',$idE)->delete();
+                if($id > 0){
+                    return \response()->json(['user'=>'deleted'],200);
+                }else{
+                    return \response()->json(['error'=>['message'=>'User Not Found','status_code'=>404]],400);
+                }
+            }else{
+                return \response()->json(['error'=>['message'=>'No tienes permiso.','status_code'=>401]],401);
+            }
         }catch (ModelNotFoundException $e){
             return \response()->json(['error'=>['message'=>'User Not Found','status_code'=>404]],404);
         }

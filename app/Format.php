@@ -22,10 +22,10 @@ class Format extends Model
     ];
     public static $rules = [
         'create'=>[
-            'operative'=>'required|max:500',
-            'finance'=>'required|max:500',
-            'observations'=>'required|max:500',
-            'reply'=>'required|boolean',
+            'operative'=>'max:500',
+            'finance'=>'max:500',
+            'observations'=>'max:500',
+            'reply'=>'boolean',
             'id_week'=>'required|integer|exists:week,id',
             'id_user'=>'required|integer|exists:users,id',
             'id_enterprise'=>'required|integer|exists:enterprise,id'

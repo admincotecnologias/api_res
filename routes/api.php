@@ -32,6 +32,7 @@ $api->version('v1', function (Router $api) {
 
         //Users
         $api->group(['prefix' => 'Users'],function(Router $api){
+            $api->post('/','App\\Api\\V1\\Controllers\\UsersController@post_Create_User');
             $api->get('/','App\\Api\\V1\\Controllers\\UsersController@get_AllUsers');
             $api->get('/Current','App\\Api\\V1\\Controllers\\UsersController@get_AuthUser');
             $api->get('/{id}','App\\Api\\V1\\Controllers\\UsersController@get_UserByID');
@@ -47,6 +48,7 @@ $api->version('v1', function (Router $api) {
             $api->delete('/{id}','App\\Api\\V1\\Controllers\\EnterpriseController@delete_EnterpriseByID');
             $api->put('/{id}','App\\Api\\V1\\Controllers\\EnterpriseController@put_Enterprise');
             $api->post('/AddUser','App\\Api\\V1\\Controllers\\EnterpriseController@add_User');
+            $api->delete('/{idE}/{idU}','App\\Api\\V1\\Controllers\\EnterpriseController@delete_User_From_Enterprise_By_ID_User');
         });
         //Formats
         $api->group(['prefix'=>'Formats'],function(Router $api){
@@ -62,6 +64,8 @@ $api->version('v1', function (Router $api) {
             $api->get('/Week/{idW}/Enterprise/{idE}','App\\Api\\V1\\Controllers\\FormatController@get_By_Week_Enterprise');
             $api->get('/Enterprise/{idE}/User/{idU}','App\\Api\\V1\\Controllers\\FormatController@get_By_Enterprise_User');
             $api->get('/Week/{idW}/Enterprise/{idE}/User/{idU}','App\\Api\\V1\\Controllers\\FormatController@get_By_Week_Enterprise_User');
+            //Files
+            $api->post('/Files','App\\Api\\V1\\Controllers\\FormatController@post_File');
         });
         //Weeks
         $api->group(['prefix'=>'Weeks'],function(Router $api){
@@ -69,6 +73,7 @@ $api->version('v1', function (Router $api) {
             $api->get('/{id}','App\\Api\\V1\\Controllers\\FormatController@get_Week_By_ID');
             $api->post('/','App\\Api\\V1\\Controllers\\FormatController@post_Weeks_Between_Two_Dates');
         });
+
     });
 
     $api->get('hello', function() {

@@ -28,7 +28,8 @@ class SignUpController extends Controller
 
         if(!Config::get('boilerplate.sign_up.release_token')) {
             return response()->json([
-                'status' => 'ok'
+                'status' => 'ok',
+                'user'=>$user,
             ], 201);
         }
 

@@ -20,6 +20,7 @@ class Enterprise extends Migration
             $table->string('photo',100)->nullable();
             $table->string('color',9)->nullable();
             $table->integer('extend')->nullable();
+            $table->integer('type')->default(1);
             $table->timestamps();
             $table->softDeletes();
         });

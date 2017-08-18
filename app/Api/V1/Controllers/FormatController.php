@@ -230,12 +230,16 @@ class FormatController extends Controller
 
         //
         $validator = Validator::make($data->all(),[
-            'id_format'=> 'required|numeric|exists:format,id'
+            'id_format'=> 'required|numeric|exists:format,id',
+            'type'=>'required|integer'
         ]);
         if($validator->fails()){
             $failed = $validator->failed();
             if(isset($failed['id_format']['Required'])){
                 return response()->json(['error'=>true,'message' => 'Falto especificar el id del formato.']);
+            }
+            if(isset($failed['type']['Required'])){
+                return response()->json(['error'=>true,'message' => 'Falto especificar el tipo del archivo.']);
             }
             if(isset($failed['id_format']['Exists'])){
                 return response()->json(['error'=>true,'message' => 'ID del formato no existe.']);
@@ -259,7 +263,7 @@ class FormatController extends Controller
             $filedb->type = $data->input('type');
             $filedb->save();
 
-            return response()->json(['error'=>false,'message'=>'Archivo guardado.','file'=>$filedb]);
+            return response()->json(['file'=>$filedb],201);
         }
         return response()->json(['error'=>true,'message'=>'Archivo Invalido.','file'=>null]);
     }

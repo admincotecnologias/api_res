@@ -2,6 +2,7 @@
 
 namespace App\Api\V1\Controllers;
 
+use Validator;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use App;
@@ -9,6 +10,7 @@ use Illuminate\Http\Response;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use \Tymon\JWTAuth\Facades\JWTAuth;
+
 
 
 class UsersController extends Controller
@@ -35,7 +37,42 @@ class UsersController extends Controller
             $user->delete();
             return \response()->json(['user'=>'deleted'],200);
         }catch (ModelNotFoundException $e){
-            return \response()->json(['error'=>['message'=>'User Not Found','status_code'=>404]],404);
+            return \response()->json(
+                ['error'=>[
+                    'message'=>'User Not Found',
+                    'status_code'=>404
+                ]],
+                404);
+        }
+    }
+    public function post_Create_User(Request $request){
+        $validator = Validator::make(App\User::$rules['create'],$request->all());
+        if($validator->fails()){
+            return response()->json(
+                ['error'=>[
+                    'message'=>$validator->errors()->all(),
+                    'status_code'=>400
+                ]
+                ],
+                400);
+        }else{
+            try{
+                $user = new App\User();
+                $user->fill($request->all());
+                $user->saveOrFail();
+                return \response()->json([
+                    'user'=>$user
+                ],
+                    201);
+            }catch (\Exception $e){
+                return response()->json(
+                    ['error'=>[
+                        'message'=>$e->getMessage(),
+                        'status_code'=>$e->getCode()
+                    ]
+                    ],
+                    400);
+            }
         }
     }
     public function post_User_Change_Password(Request $request){

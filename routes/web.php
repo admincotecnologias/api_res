@@ -14,8 +14,7 @@
 Route::get('reset_password/{token}', ['as' => 'password.reset', function($token)
 {
     // implement your reset password route here!
+    return view('token',['token'=>$token]);
 }]);
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::post('/reset_password/{token}', 'Auth@Change_Password');
