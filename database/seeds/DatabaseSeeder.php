@@ -1017,6 +1017,10 @@ class DatabaseSeeder extends Seeder
         //Paulina Valenzuela
         Enterprise_User::create([
             'id_user'=>22,
+            'id_enterprise'=>69,
+        ]);
+        Enterprise_User::create([
+            'id_user'=>22,
             'id_enterprise'=>80,
         ]);
         Enterprise_User::create([

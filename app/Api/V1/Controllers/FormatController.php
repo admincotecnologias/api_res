@@ -267,4 +267,33 @@ class FormatController extends Controller
         }
         return response()->json(['error'=>true,'message'=>'Archivo Invalido.','file'=>null]);
     }
+    public function delete_File($id){
+        try{
+            $file = Files::findOrFail($id);
+            $path = realpath(base_path('public'));
+            $bool = unlink($path.$file->path);
+            if($bool){
+                $data = $file->delete();
+                return response()->json([
+                    'file'=>$data,
+                    'message'=>'ok'
+                ],200);
+            }else{
+                return response()->json(['error'=>[
+                    'message'=>'No se pudo eliminar archivo, intente mas tarde.',
+                    'status_code'=>400
+                ]],400);
+            }
+        }catch (ModelNotFoundException $e){
+            return response()->json(['error'=>[
+                'message'=>$e->getMessage(),
+                'status_code'=>404
+            ]],404);
+        }catch(\Exception $e){
+            return response()->json(['error'=>[
+                'message'=>$e->getMessage(),
+                'status_code'=>$e->getCode()
+            ]],400);
+        }
+    }
 }

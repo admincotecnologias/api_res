@@ -47,10 +47,10 @@ class EnterpriseController extends Controller
                 if($id > 0){
                     return \response()->json(['user'=>'deleted'],200);
                 }else{
-                    return \response()->json(['error'=>['message'=>'User Not Found','status_code'=>404]],400);
+                    return \response()->json(['error'=>['message'=>$id,'status_code'=>404]],400);
                 }
             }else{
-                return \response()->json(['error'=>['message'=>'No tienes permiso.','status_code'=>401]],401);
+                return \response()->json(['error'=>['message'=>'No tienes permiso.','status_code'=>401,'user'=>$user]],401);
             }
         }catch (ModelNotFoundException $e){
             return \response()->json(['error'=>['message'=>'User Not Found','status_code'=>404]],404);

@@ -66,6 +66,7 @@ $api->version('v1', function (Router $api) {
             $api->get('/Week/{idW}/Enterprise/{idE}/User/{idU}','App\\Api\\V1\\Controllers\\FormatController@get_By_Week_Enterprise_User');
             //Files
             $api->post('/Files','App\\Api\\V1\\Controllers\\FormatController@post_File');
+            $api->delete('/Files/{id}','App\\Api\\V1\\Controllers\\FormatController@delete_File');
         });
         //Weeks
         $api->group(['prefix'=>'Weeks'],function(Router $api){

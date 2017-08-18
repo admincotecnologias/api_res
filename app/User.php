@@ -48,7 +48,8 @@ class User extends Authenticatable
             return ['id'=>$enterprise->id,
                 'name'=>$enterprise->name,
                 'photo'=>$enterprise->photo,
-                'color'=>$enterprise->color
+                'color'=>$enterprise->color,
+                'color'=>$enterprise->extend,
             ];
         });
         return $filter;

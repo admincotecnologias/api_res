@@ -25,7 +25,6 @@ class Files extends Migration
             $table->integer('type');
             // Constraints declaration
             $table->timestamps();
-            $table->softDeletes();
 
             $table->foreign('id_format')->references('id')->on('format')->onDelete('set null');
         });
