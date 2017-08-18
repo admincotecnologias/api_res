@@ -49,7 +49,7 @@ class User extends Authenticatable
                 'name'=>$enterprise->name,
                 'photo'=>$enterprise->photo,
                 'color'=>$enterprise->color,
-                'color'=>$enterprise->extend,
+                'extend'=>$enterprise->extend,
             ];
         });
         return $filter;
