@@ -24,7 +24,6 @@ class MailerController extends Controller
     public function post_Mail_Html_Single(Request $request){
         try{
             $html = $request->input('content');
-            $title = $request->input('title');
             $to = array($request->input('to'));
             $subject = $request->input('subject');
             foreach ($to as $item){
