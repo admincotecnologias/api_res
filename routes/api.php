@@ -12,6 +12,7 @@ $api->version('v1', function (Router $api) {
 
         $api->post('recovery', 'App\\Api\\V1\\Controllers\\ForgotPasswordController@sendResetEmail');
         $api->post('reset', 'App\\Api\\V1\\Controllers\\ResetPasswordController@resetPassword');
+
     });
 
     $api->group(['middleware' => 'jwt.auth'], function(Router $api) {
@@ -82,4 +83,8 @@ $api->version('v1', function (Router $api) {
             'message' => 'This is a simple example of item returned by your APIs. Everyone can see it.'
         ]);
     });
+
+    $api->get('Mail','App\\Api\\V1\\Controllers\\MailerController@post_Mail_Single');
+    $api->post('MailHtml','App\\Api\\V1\\Controllers\\MailerController@post_Mail_Html_Single');
+
 });
