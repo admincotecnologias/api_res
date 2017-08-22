@@ -1055,20 +1055,8 @@ class DatabaseSeeder extends Seeder
         //WEEKS
 
         Week::create([
-            'end_date'=>\Carbon\Carbon::now()->toDateString(),
-            'start_date'=>\Carbon\Carbon::now()->subDays(7)->toDateString()
-        ]);
-        Week::create([
-            'end_date'=>\Carbon\Carbon::now()->subDays(7)->toDateString(),
-            'start_date'=>\Carbon\Carbon::now()->subDays(14)->toDateString()
-        ]);
-        Week::create([
-            'end_date'=>\Carbon\Carbon::now()->subDays(14)->toDateString(),
-            'start_date'=>\Carbon\Carbon::now()->subDays(21)->toDateString()
-        ]);
-        Week::create([
-            'end_date'=>\Carbon\Carbon::now()->subDays(21)->toDateString(),
-            'start_date'=>\Carbon\Carbon::now()->subDays(28)->toDateString()
+            'start_date'=>\Carbon\Carbon::now()->subDay()->toDateString(),
+            'end_date'=>\Carbon\Carbon::now()->addDays(4)->toDateString()
         ]);
     }
 }

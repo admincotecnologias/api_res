@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use Carbon\Carbon;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
@@ -19,6 +20,7 @@ class TemplateMail extends Mailable
     public function __construct()
     {
         //
+        $this->subject = 'Recordatorio Reporte Empresarial Semanal';
     }
 
     /**

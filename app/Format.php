@@ -15,6 +15,7 @@ class Format extends Model
         'operative',
         'finance',
         'observations',
+        'reply_txt',
         'reply',
         'id_week',
         'id_user',
@@ -25,6 +26,7 @@ class Format extends Model
             'operative'=>'max:500',
             'finance'=>'max:500',
             'observations'=>'max:500',
+            'reply_txt'=>'max:500',
             'reply'=>'boolean',
             'id_week'=>'required|integer|exists:week,id',
             'id_user'=>'required|integer|exists:users,id',
@@ -34,6 +36,7 @@ class Format extends Model
             'operative'=>'max:500',
             'finance'=>'max:500',
             'observations'=>'max:500',
+            'reply_txt'=>'max:500',
             'reply'=>'boolean',
         ]
     ];

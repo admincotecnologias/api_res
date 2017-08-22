@@ -2,10 +2,14 @@
 
 namespace App\Console;
 
+use App\Mail\TemplateMail;
+use App\User;
 use App\Week;
 use Carbon\Carbon;
+use function foo\func;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use Illuminate\Support\Facades\Mail;
 
 class Kernel extends ConsoleKernel
 {
@@ -26,14 +30,8 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')
-        //          ->hourly();
-        $schedule->call(function(){
-            Week::create([
-                'start_date'=>Carbon::now()->toDateString(),
-                'end_date'=>Carbon::now()->addDays(6)->toDateString()
-            ]);
-        })->weekly()->saturdays()->at('1:00');
+        $schedule->command('alerta_semanal')->weekly()->thursdays()->at('12:00');
+        $schedule->command('crear_semana')->weekly()->saturdays()->at('1:00');
     }
 
     /**

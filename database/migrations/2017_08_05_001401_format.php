@@ -19,6 +19,7 @@ class Format extends Migration
             $table->string('operative',500)->default('');
             $table->string('finance',500)->default('');
             $table->string('observations',500)->default('');
+            $table->string('reply_txt',500)->default('');
             $table->boolean('reply')->default(false);
             $table->integer('id_week')->unsigned()->nullable();
             $table->integer('id_user')->unsigned()->nullable();

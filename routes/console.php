@@ -13,6 +13,17 @@ use Illuminate\Foundation\Inspiring;
 |
 */
 
-Artisan::command('inspire', function () {
-    $this->comment(Inspiring::quote());
-})->describe('Display an inspiring quote');
+Artisan::command('alerta_semanal', function () {
+    $date = \Carbon\Carbon::now();
+    $users = \App\User::all();
+    \Illuminate\Support\Facades\Mail::to($users)->send(new \App\Mail\TemplateMail($date));
+})->describe('Ejecuta alerta mail');
+
+Artisan::command('crear_semana', function () {
+    $monday = \Carbon\Carbon::now()->addDays(2);
+    $friday = \Carbon\Carbon::parse($monday)->addDays(4);
+    \App\Week::create([
+        'start_date'=>$monday->toDateString(),
+        'end_date'=>$friday->toDateString()
+    ]);
+})->describe('Ejecuta alerta mail');
