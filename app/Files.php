@@ -18,7 +18,7 @@ class Files extends Model
     ];
     public static $rules = [
         'create' => [
-            'id_format' => 'required|integer|exist:format,id',
+            'id_format' => 'required|integer|exists:format,id',
             'name' => 'required|max:100',
             'path' => 'required|max:100',
             'extension' => 'required|max:100',

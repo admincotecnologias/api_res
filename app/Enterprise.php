@@ -21,7 +21,7 @@ class Enterprise extends Model
         'create'=>[
             'name'=>'required|max:50',
             'color'=>'required|nullable|max:9',
-            'extend'=>'required|nullable|exist:enterprise,id',
+            'extend'=>'required|nullable|exists:enterprise,id',
             'photo'=>'max:100',
             'id'=>'nullable|integer',
             'type'=>'integer'

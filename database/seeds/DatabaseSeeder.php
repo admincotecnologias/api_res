@@ -1056,7 +1056,7 @@ class DatabaseSeeder extends Seeder
 
         Week::create([
             'start_date'=>\Carbon\Carbon::now()->subDay()->toDateString(),
-            'end_date'=>\Carbon\Carbon::now()->addDays(4)->toDateString()
+            'end_date'=>\Carbon\Carbon::now()->addDays(3)->toDateString()
         ]);
     }
 }

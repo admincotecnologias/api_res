@@ -15,7 +15,7 @@
         html, body {
             background-color: #fff;
             color: #636b6f;
-            font-family: 'Raleway', sans-serif;
+            font-family: "Raleway", sans-serif;
             font-weight: 100;
             height: 100vh;
             margin: 0;
@@ -73,7 +73,7 @@
 
         <div class="links">
             <p>
-                Recordatorio de llenado de formatos empresariales, fecha limite: {{\Carbon\Carbon::now()->addDay()->format('d/m/Y')}}
+                Recordatorio de llenado de formatos empresariales, fecha limite: {{\Carbon\Carbon::now()->addDay()->format("d/m/Y")}}
             </p>
         </div>
     </div>
