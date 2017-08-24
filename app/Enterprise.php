@@ -14,7 +14,7 @@ class Enterprise extends Model
     protected $table = 'enterprise';
 
     //Campos
-    protected $fillable = ['id','name','photo','color','extend'];
+    protected $fillable = ['id','name','color','extend'];
 
     public static $rules = [
         // Validation rules
@@ -23,8 +23,7 @@ class Enterprise extends Model
             'color'=>'required|nullable|max:9',
             'extend'=>'required|nullable|exists:enterprise,id',
             'id'=>'nullable|integer',
-            'type'=>'integer',
-            'photo'=>'nullable|min:1|max:100'
+            'type'=>'integer'
         ],
         'update'=>[
             'name'=>'max:50',

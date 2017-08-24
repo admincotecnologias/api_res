@@ -49,7 +49,7 @@ $api->version('v1', function (Router $api) {
             $api->put('/Restore/{id}','App\\Api\\V1\\Controllers\\EnterpriseController@put_Restore_Enterprise');
             $api->get('/{id}','App\\Api\\V1\\Controllers\\EnterpriseController@get_EnterpriseByID');
             $api->delete('/{id}','App\\Api\\V1\\Controllers\\EnterpriseController@delete_EnterpriseByID');
-            $api->put('/{id}','App\\Api\\V1\\Controllers\\EnterpriseController@put_Enterprise');
+            $api->post('/{id}','App\\Api\\V1\\Controllers\\EnterpriseController@put_Enterprise');
             $api->post('/AddUser','App\\Api\\V1\\Controllers\\EnterpriseController@add_User');
             $api->delete('/{idE}/{idU}','App\\Api\\V1\\Controllers\\EnterpriseController@delete_User_From_Enterprise_By_ID_User');
         });

@@ -2,18 +2,20 @@
 
 namespace App\Api\V1\Controllers;
 
-use App\Enterprise;
-use App\Enterprise_User;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
+use App\Enterprise;
+use App\Enterprise_User;
 use Illuminate\Http\Response;
 use App\Http\Controllers\Controller;
-use Validator;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\File;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Illuminate\Support\Facades\DB;
 use \Tymon\JWTAuth\Facades\JWTAuth;
+use Validator;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use App\Files;
 
 
 class EnterpriseController extends Controller
@@ -115,7 +117,7 @@ class EnterpriseController extends Controller
         if($validator->fails()){
             return \response()->json(['error'=>['message'=>$validator->errors()->all(),'status_code'=>400]],400);
         }
-        if($request->hasFile('photo')){
+        if(count($request->allFiles())>0){
             $file = $request->file('photo');
             $path = realpath(base_path('public/storage/'));
             $extension = '.'.$file->guessClientExtension();
