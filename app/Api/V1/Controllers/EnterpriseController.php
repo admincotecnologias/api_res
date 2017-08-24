@@ -23,6 +23,20 @@ class EnterpriseController extends Controller
         $enterprises = Enterprise::where('extend',null)->get();
         return \response()->json(['enterprises'=>$enterprises],200);
     }
+    public function get_Enterprises_deleted(){
+        $enterprises = Enterprise::onlyTrashed()->all();
+        return \response()->json(['enterprises'=>$enterprises],200);
+    }
+    public function  put_Restore_Enterprise($id){
+        try{
+            $enterprise = Enterprise::withTrashed()->where('id',$id)->first();
+            $enterprise->restore();
+            $enterprise->saveOrFail();
+            return \response()->json(['enterprise'=>$enterprise],200);
+        }catch (\Exception $e){
+            return \response()->json(['error'=>['message'=>$e->getMessage(),'status_code'=>$e->getCode(),'line'=>$e->getLine()]],400);
+        }
+    }
     public function get_EnterpriseByID($id){
         try{
             return Enterprise::findOrFail($id);

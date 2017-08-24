@@ -45,6 +45,8 @@ $api->version('v1', function (Router $api) {
         $api->group(['prefix' => 'Enterprises'],function(Router $api){
             $api->post('/','App\\Api\\V1\\Controllers\\EnterpriseController@create_Enterprise');
             $api->get('/','App\\Api\\V1\\Controllers\\EnterpriseController@get_AllEnterprises');
+            $api->get('/Trashed','App\\Api\\V1\\Controllers\\EnterpriseController@get_Enterprises_deleted');
+            $api->put('/Restore/{id}','App\\Api\\V1\\Controllers\\EnterpriseController@put_Restore_Enterprise');
             $api->get('/{id}','App\\Api\\V1\\Controllers\\EnterpriseController@get_EnterpriseByID');
             $api->delete('/{id}','App\\Api\\V1\\Controllers\\EnterpriseController@delete_EnterpriseByID');
             $api->put('/{id}','App\\Api\\V1\\Controllers\\EnterpriseController@put_Enterprise');
