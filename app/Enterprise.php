@@ -55,7 +55,8 @@ class Enterprise extends Model
                     'name'=>$enterprise->name,
                     'color'=>$enterprise->color,
                     'photo'=>$enterprise->photo,
-                    'users'=>$enterprise->users
+                    'users'=>$enterprise->users,
+                    'extend'=>$enterprise->extend
                 ];
             });
             return $childs;
