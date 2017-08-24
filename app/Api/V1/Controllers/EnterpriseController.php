@@ -24,7 +24,7 @@ class EnterpriseController extends Controller
         return \response()->json(['enterprises'=>$enterprises],200);
     }
     public function get_Enterprises_deleted(){
-        $enterprises = Enterprise::onlyTrashed()->all();
+        $enterprises = Enterprise::onlyTrashed()->get();
         return \response()->json(['enterprises'=>$enterprises],200);
     }
     public function  put_Restore_Enterprise($id){
