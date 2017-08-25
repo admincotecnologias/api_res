@@ -43,6 +43,7 @@ $api->version('v1', function (Router $api) {
 
         //Enterprises
         $api->group(['prefix' => 'Enterprises'],function(Router $api){
+            $api->post('/AddUser','App\\Api\\V1\\Controllers\\EnterpriseController@addUser');
             $api->post('/','App\\Api\\V1\\Controllers\\EnterpriseController@create_Enterprise');
             $api->get('/','App\\Api\\V1\\Controllers\\EnterpriseController@get_AllEnterprises');
             $api->get('/Trashed','App\\Api\\V1\\Controllers\\EnterpriseController@get_Enterprises_deleted');
@@ -50,7 +51,6 @@ $api->version('v1', function (Router $api) {
             $api->get('/{id}','App\\Api\\V1\\Controllers\\EnterpriseController@get_EnterpriseByID');
             $api->delete('/{id}','App\\Api\\V1\\Controllers\\EnterpriseController@delete_EnterpriseByID');
             $api->post('/{id}','App\\Api\\V1\\Controllers\\EnterpriseController@put_Enterprise');
-            $api->post('/AddUser','App\\Api\\V1\\Controllers\\EnterpriseController@add_User');
             $api->delete('/{idE}/{idU}','App\\Api\\V1\\Controllers\\EnterpriseController@delete_User_From_Enterprise_By_ID_User');
         });
         //Formats

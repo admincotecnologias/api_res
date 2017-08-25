@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Files extends Model
 {
     //
+    protected $table = 'files';
     protected $fillable = [
         'id_format',
         'name',

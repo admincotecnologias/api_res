@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Enterprise_User extends Model
 {
+    use SoftDeletes;
     //Tabla
     protected $table = 'enterprise_user';
 
@@ -16,8 +17,8 @@ class Enterprise_User extends Model
     public static $rules = [
         // Validation rules
         'create'=>[
-            'id_user'=>'required|integer|exists:users,id',
-            'id_enterprise'=>'required|integer|exists:enterprise,id',
+            'id_user'=>'required|integer',
+            'id_enterprise'=>'required|integer',
         ]
     ];
 

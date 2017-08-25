@@ -100,7 +100,7 @@ class EnterpriseController extends Controller
             return \response()->json(['error'=>['message'=>$e->getMessage(),'status_code'=>$e->getCode()]],400);
         }
     }
-    public function add_User(Request $request){
+    public function addUser(Request $request){
         $validator = Validator::make($request->all(),Enterprise_User::$rules['create']);
         if($validator->fails()){
             return \response()->json(['error'=>['message'=>$validator->errors()->all(),'status_code'=>400]],400);
