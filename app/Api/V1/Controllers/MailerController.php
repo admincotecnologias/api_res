@@ -15,7 +15,7 @@ class MailerController extends Controller
     //
     public function post_Mail_Single(Request $request){
         try{
-            Mail::to('enrique.moya08@gmail.com')->send(new TemplateMail());
+            Mail::bcc(['enrique.moya08@gmail.com','miguelreina@gmail.com'])->send(new TemplateMail());
             return response()->json(['message'=>'ok'],200);
         }catch (\Exception $e){
             return response()->json(['error'=>['code'=>$e->getCode(),'line'=>$e->getLine(),'message'=>$e->getMessage()]]);

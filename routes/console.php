@@ -16,7 +16,7 @@ use Illuminate\Foundation\Inspiring;
 Artisan::command('alerta_semanal', function () {
     $date = \Carbon\Carbon::now();
     $users = \App\User::all();
-    \Illuminate\Support\Facades\Mail::to($users)->send(new \App\Mail\TemplateMail($date));
+    \Illuminate\Support\Facades\Mail::bcc($users)->send(new \App\Mail\TemplateMail($date));
 })->describe('Ejecuta alerta mail');
 
 Artisan::command('crear_semana', function () {

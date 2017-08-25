@@ -30,6 +30,6 @@ class TemplateMail extends Mailable
      */
     public function build()
     {
-        return $this->view('templateMail');
+        return $this->from('noreply@cotecnologias.com','RES')->view('templateMail2');
     }
 }
