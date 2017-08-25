@@ -109,7 +109,7 @@ class EnterpriseController extends Controller
             $enterprise = Enterprise_User::create($request->all());
             return \response()->json($enterprise,201);
         }catch (\Exception $e){
-            return \response()->json(['error'=>['message'=>$e->getMessage(),'status_code'=>$e->getCode()]],400);
+            return \response()->json(['error'=>['message'=>$e->getMessage(),'status_code'=>$e->getCode(),'line'=>$e->getLine()]],400);
         }
     }
     public function put_Enterprise(Request $request,$id){
