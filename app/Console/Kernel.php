@@ -30,7 +30,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('alerta_semanal')->weekly()->thursdays()->at('12:00');
+        //$schedule->command('alerta_semanal')->weekly()->thursdays()->at('12:00');
         $schedule->command('crear_semana')->weekly()->saturdays()->at('1:00');
     }
 
