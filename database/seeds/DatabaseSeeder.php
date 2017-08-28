@@ -18,19 +18,19 @@ class DatabaseSeeder extends Seeder
         // $this->call(UsersTableSeeder::class);
         User::create([
             'name'=>'Enrique Moya',
-            'email'=>'enrique@dummy.com',
+            'email'=>'lmoya@cotecnologias.com',
             'password'=>'prueba123',
             'role'=>true
         ]);
         User::create([
             'name'=>'Leonardo Durazo',
-            'email'=>'leo@dummy.com',
+            'email'=>'ldurazo@cotecnologias.com',
             'password'=>'prueba123',
             'role'=>true
         ]);
         User::create([
             'name'=>'Nan',
-            'email'=>'nan@dummy.com',
+            'email'=>'lmontano@cotecnologias.com',
             'password'=>'prueba123',
             'role'=>true
         ]);
@@ -1055,8 +1055,8 @@ class DatabaseSeeder extends Seeder
         //WEEKS
 
         Week::create([
-            'start_date'=>\Carbon\Carbon::now()->subDay()->toDateString(),
-            'end_date'=>\Carbon\Carbon::now()->addDays(3)->toDateString()
+            'start_date'=>\Carbon\Carbon::now()->toDateString(),
+            'end_date'=>\Carbon\Carbon::now()->addDays(4)->toDateString()
         ]);
     }
 }
