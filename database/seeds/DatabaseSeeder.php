@@ -300,193 +300,193 @@ class DatabaseSeeder extends Seeder
 
         Enterprise::create([
             'name'=> 'ENTRADAS, SALIDAS, NOTICIAS',
-            'color'=>null,
+            'color'=>'47CC4D',
             'extend'=>1,
             'id'=>null
         ]);
         Enterprise::create([
             'name'=> 'ESTATUS PORTAFOLIO',
-            'color'=>null,
+            'color'=>'47CC4D',
             'extend'=>1,
             'id'=>null
         ]);
         Enterprise::create([
             'name'=> 'COMITÉ DE CREDITO',
-            'color'=>null,
+            'color'=>'47CC4D',
             'extend'=>1,
             'id'=>null
         ]);
         Enterprise::create([
             'name'=> 'SEMAFORO DE ENDEUDAMIENTO',
-            'color'=>null,
+            'color'=>'47CC4D',
             'extend'=>1,
             'id'=>null
         ]);
         Enterprise::create([
             'name'=> 'CORPORATIVO',
-            'color'=>null,
+            'color'=>'A0D4FF',
             'extend'=>2,
             'id'=>null
         ]);
         Enterprise::create([
             'name'=> 'REQUERIMIENTO DE CAPITAL',
-            'color'=>null,
+            'color'=>'A0D4FF',
             'extend'=>2,
             'id'=>null
         ]);
         Enterprise::create([
             'name'=> 'LA CASITA GANADO',
-            'color'=>null,
+            'color'=>'FFAF91',
             'extend'=>3,
             'id'=>null
         ]);
         Enterprise::create([
             'name'=> 'LA CASITA PATRIMONIAL',
-            'color'=>null,
+            'color'=>'FFAF91',
             'extend'=>3,
             'id'=>null
         ]);
         Enterprise::create([
             'name'=> 'GENETICA',
-            'color'=>null,
+            'color'=>'FFAF91',
             'extend'=>3,
             'id'=>null
         ]);
         Enterprise::create([
             'name'=> 'CHAPARRAL CACERIA',
-            'color'=>null,
+            'color'=>'FFAF91',
             'extend'=>3,
             'id'=>null
         ]);
         Enterprise::create([
             'name'=> 'CHAPARRAL PATRIMONIAL',
-            'color'=>null,
+            'color'=>'FFAF91',
             'extend'=>3,
             'id'=>null
         ]);
         Enterprise::create([
             'name'=> 'ARCADIA',
-            'color'=>null,
+            'color'=>'FFAF91',
             'extend'=>5,
             'id'=>null
         ]);
         Enterprise::create([
             'name'=> 'ANDENES',
-            'color'=>null,
+            'color'=>'FFAF91',
             'extend'=>5,
             'id'=>null
         ]);
         Enterprise::create([
             'name'=> 'SUNMALL',
-            'color'=>null,
+            'color'=>'FFAF91',
             'extend'=>5,
             'id'=>null
         ]);
         Enterprise::create([
             'name'=> 'KINO PITIC',
-            'color'=>null,
+            'color'=>'FFAF91',
             'extend'=>5,
             'id'=>null
         ]);
         Enterprise::create([
             'name'=> 'JLL GPO MULATOS',
-            'color'=>null,
+            'color'=>'FF8713',
             'extend'=>7,
             'id'=>null
         ]);
         Enterprise::create([
             'name'=> 'TARSCO',
-            'color'=>null,
+            'color'=>'FF8713',
             'extend'=>8,
             'id'=>null
         ]);
         Enterprise::create([
             'name'=> 'PETROLEOS MTY',
-            'color'=>null,
+            'color'=>'FF8713',
             'extend'=>8,
             'id'=>null
         ]);
         Enterprise::create([
             'name'=> 'LIBR Y PUENTES',
-            'color'=>null,
+            'color'=>'FF8713',
             'extend'=>9,
             'id'=>null
         ]);
         Enterprise::create([
             'name'=> 'PUERTA NORTE',
-            'color'=>null,
+            'color'=>'FF1005',
             'extend'=>12,
             'id'=>null
         ]);
         Enterprise::create([
             'name'=> 'PUERTA OESTE',
-            'color'=>null,
+            'color'=>'FF1005',
             'extend'=>12,
             'id'=>null
         ]);
         Enterprise::create([
             'name'=> 'PROHOSA-NOG',
-            'color'=>null,
+            'color'=>'FF1005',
             'extend'=>12,
             'id'=>null
         ]);
         Enterprise::create([
             'name'=> 'PROHOSA-BC',
-            'color'=>null,
+            'color'=>'FF1005',
             'extend'=>12,
             'id'=>null
         ]);
         Enterprise::create([
             'name'=> 'VENTURA HILLO',
-            'color'=>null,
+            'color'=>'FF1005',
             'extend'=>12,
             'id'=>null
         ]);
         Enterprise::create([
             'name'=> 'PISCSA',
-            'color'=>null,
+            'color'=>'FF1005',
             'extend'=>18,
             'id'=>null
         ]);
         Enterprise::create([
             'name'=> 'CONDOR',
-            'color'=>null,
+            'color'=>'FF1005',
             'extend'=>18,
             'id'=>null
         ]);
         Enterprise::create([
             'name'=> 'TURISMO',
-            'color'=>null,
+            'color'=>'FF1005',
             'extend'=>19,
             'id'=>null
         ]);
         Enterprise::create([
             'name'=> 'DESARROLLO',
-            'color'=>null,
+            'color'=>'FF1005',
             'extend'=>19,
             'id'=>null
         ]);
         Enterprise::create([
             'name'=> 'HERMOSILLO',
-            'color'=>null,
+            'color'=>'8800FF',
             'extend'=>20,
             'id'=>null
         ]);
         Enterprise::create([
             'name'=> 'AGUASCALIENTES',
-            'color'=>null,
+            'color'=>'8800FF',
             'extend'=>20,
             'id'=>null
         ]);
         Enterprise::create([
             'name'=> 'PLAYA DEL CARMEN',
-            'color'=>null,
+            'color'=>'8800FF',
             'extend'=>20,
             'id'=>null
         ]);
         Enterprise::create([
             'name'=> 'SAN FRANCISQUITO',
-            'color'=>null,
+            'color'=>'FFD527',
             'extend'=>23,
             'id'=>null
         ]);
