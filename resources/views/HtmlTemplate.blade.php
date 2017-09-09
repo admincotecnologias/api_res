@@ -39,7 +39,7 @@
                                                 <div class="m_6622520494914050224content" style="box-sizing:border-box;max-width:600px;display:block;margin:0 auto;padding:0 20px">
                                                     <div style="text-align:left;box-sizing:border-box;margin:0;padding:0" align="left">
                                                         <p style="box-sizing:border-box;font-weight:normal;line-height:1.6;font-size:14px;color:#4a4a4c;margin:0 0 13.33333px;padding:10px 30px 0px">
-                                                            {{$content}}
+                                                            {!! $content !!}
                                                             <br>
                                                         <div style="text-align:center;box-sizing:border-box;margin:0;padding:10px 0 20px" align="center">
                                                             <h3></h3>
