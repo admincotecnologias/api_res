@@ -88,5 +88,7 @@ $api->version('v1', function (Router $api) {
 
     $api->get('Mail','App\\Api\\V1\\Controllers\\MailerController@post_Mail_Single');
     $api->post('MailHtml','App\\Api\\V1\\Controllers\\MailerController@post_Mail_Html_Single');
+    $api->post('MailBi','App\\Api\\V1\\Controllers\\MailerController@post_Mail_Bi');
+    $api->post('MailBiPass','App\\Api\\V1\\Controllers\\MailerController@post_Mail_Password_Bi');
 
 });
